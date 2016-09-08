@@ -7,7 +7,7 @@ hibernate:
         region.factory_class: 'org.hibernate.cache.ehcache.EhCacheRegionFactory'
 
 dataSources:
-    dataSource:
+    testDS:
         pooled: true
         jmxExport: true
         driverClassName: org.h2.Driver
@@ -17,17 +17,17 @@ dataSources:
 environments:
     development:
         dataSources:
-            dataSource:
+            testDS:
                 dbCreate: create-drop
                 url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
     test:
         dataSources:
-            dataSource:
+            testDS:
                 dbCreate: update
                 url: jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
     production:
         dataSources:
-            dataSource:
+            testDS:
                 dbCreate: update
                 url: jdbc:h2:./prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
                 properties:
